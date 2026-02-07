@@ -14,6 +14,7 @@ namespace FlatMeat_Backend.Application.Mappings
             CreateMap<Users, UserDto>().ReverseMap();
             CreateMap<CreateOwnerDto, OwnerPersonalInfo>();
             CreateMap<CreateRoomDto, RoomData>();
+            CreateMap<RoomData, RoomResponseDto>().ReverseMap();
 
         }
     }
