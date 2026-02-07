@@ -21,7 +21,7 @@ namespace FlatMate_Backend.Application.Commands
         public async Task<int> Handle(CreateRoomCommand request, CancellationToken cancellationToken)
         {
             var room = _mapper.Map<RoomData>(request.RoomDto);
-            await _repository.AddAsync(room);
+            await _repository.AddRoomAsync(room);
             return room.RoomId;
         }
     }

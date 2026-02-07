@@ -20,7 +20,7 @@ namespace FlatMate_Backend.Application.Commands
 
         public async Task<int> Handle(CreateOwnerCommand request, CancellationToken cancellationToken)
         {
-            var owner = _mapper.Map<OwnerPersonalInfo>(request.OwnerDto);
+            var owner = _mapper.Map<OwnerPersonalInfo>(request.OwnerDto);  
             await _repository.AddRoomAsync(owner);
             return owner.OwnerId;
         }
