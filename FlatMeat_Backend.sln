@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36717.8 d17.14
+VisualStudioVersion = 17.14.36717.8
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlatMeat_Backend", "FlatMeat_Backend.csproj", "{7B8E344D-710A-4962-B9C1-7F64431D83AF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlatMate_Backend", "FlatMate_Backend.csproj", "{7B8E344D-710A-4962-B9C1-7F64431D83AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

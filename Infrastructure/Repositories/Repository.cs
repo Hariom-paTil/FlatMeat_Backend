@@ -29,5 +29,16 @@ namespace FlatMeat_Backend.Infrastructure.Repositories
         {
             await _context.SaveChangesAsync();
         }
+        public async Task<IEnumerable<T>> GetAllAsync()
+        {
+            return await _context.Set<T>().ToListAsync();
+        }
+        public async Task<T> AddRoomAsync(T entity)
+        {
+            _context.Set<T>().Add(entity);
+            await _context.SaveChangesAsync();
+            return entity;
+        }
+
     }
 }

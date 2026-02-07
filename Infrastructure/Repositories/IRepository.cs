@@ -8,5 +8,7 @@ namespace FlatMeat_Backend.Infrastructure.Repositories
         Task<T> GetAsync(Expression<Func<T, bool>> predicate);
         Task AddAsync(T entity);
         Task SaveAsync();
+        Task<T> AddRoomAsync(T entity);
+        Task<IEnumerable<T>> GetAllAsync();
     }
 }

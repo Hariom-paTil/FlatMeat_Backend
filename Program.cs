@@ -1,10 +1,8 @@
-using AutoMapper;
 using FlatMeat_Backend.Application.Commands;
 using FlatMeat_Backend.Application.Interfaces;
 using FlatMeat_Backend.Application.Mappings;
 using FlatMeat_Backend.Infrastructure.Persistence;
 using FlatMeat_Backend.Infrastructure.Repositories;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,9 +29,22 @@ builder.Services.AddMediatR(cfg =>
 // AutoMapper
 builder.Services.AddAutoMapper(typeof(UserProfile).Assembly);
 
+// ? CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngular",
+        policy =>
+        {
+            policy
+                .WithOrigins("http://localhost:4200")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
+
 var app = builder.Build();
 
-// Configure HTTP request pipeline
+// Swagger
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -41,6 +52,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// ? CORS must be before Authorization
+app.UseCors("AllowAngular");
+
 app.UseAuthorization();
 app.MapControllers();
 
